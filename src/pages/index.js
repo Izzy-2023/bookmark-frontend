@@ -62,13 +62,13 @@ const Landing = () => {
             <Form action='/create' method='post'>
                 <input type='input' name='title' placeholder="Bookmark title"/>
                 <input type='input' name='url' placeholder="Bookmark URL" />
-                <input type='submit' value={'Create Bookmark'} />
+                <input type='submit' name='add-bookmark' value={'Add Bookmark'} />
             </Form>
 
             <h3>Your Bookmarks</h3>
             <div className="bookmark-card-list">
-                {bookmarks.map(bookmark => (
-                    <div key={bookmark._id} className="bookmark-card">
+                {bookmarks.slice(0).reverse().map(bookmark => (
+                <div key={bookmark._id} className="bookmark-card">
                         {editingBookmarkId === bookmark._id ? (
                             <>
                                 <input type='text' value={updatedBookmarkTitle} onChange={(e) => setUpdatedBookmarkTitle(e.target.value)} />
