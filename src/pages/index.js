@@ -57,15 +57,15 @@ const Landing = () => {
     
 
     return (
-        <div>
-            <h3>Create a bookmark</h3>
+        <div className="form-container">
+            <h1>Bookmark App</h1>
             <Form action='/create' method='post'>
                 <input type='input' name='title' placeholder="Bookmark title"/>
                 <input type='input' name='url' placeholder="Bookmark URL" />
                 <input type='submit' value={'Create Bookmark'} />
             </Form>
 
-            <h3>Bookmarks</h3>
+            <h3>Your Bookmarks</h3>
             <div className="bookmark-card-list">
                 {bookmarks.map(bookmark => (
                     <div key={bookmark._id} className="bookmark-card">

@@ -5,53 +5,72 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: aqua;
+  color: var(--text-color); /* Use CSS variable for text color */
   text-align: center;
+  background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 
 .bookmark-card {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-  margin-bottom: 10px;
+  background-color: rgb(176, 122, 122);
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 5px;
+  margin-bottom: 20px;
+  width: 500px;
+  margin: 0 auto;
 }
 
 .bookmark-card h2 {
   margin-top: 0;
-  margin-bottom: 5px;
+  margin-bottom: 2px;
+  font-size: 1.5rem;
 }
 
 .bookmark-card p {
   margin-top: 0;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+  color: #555;
 }
 
 .bookmark-card a {
   display: block;
   color: #007bff;
   text-decoration: none;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
 
 .bookmark-card .bookmark-actions {
   display: flex;
   justify-content: flex-end;
+  margin-bottom: 10px;
 }
 
 .bookmark-card .bookmark-actions button {
-  background-color: transparent;
+  background-color: #007bff;
+  color: #fff;
   border: none;
   cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 4px;
   margin-left: 5px;
+  transition: background-color 0.3s;
+}
+
+.bookmark-card .bookmark-actions button:hover {
+  background-color: #0056b3;
 }
 
 .bookmark-card .bookmark-actions button i {
-  color: #007bff;
+  margin-right: 5px;
+}
+
+.bookmark-button {
+  background-color: lightblue;
+  cursor: pointer;
+}
+
+.bookmark-list {
+  margin-bottom: 20px;
 }
 
