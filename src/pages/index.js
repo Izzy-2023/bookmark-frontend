@@ -44,7 +44,7 @@ const Landing = () => {
     const handleDelete = async (id) => {
         try {
             await fetch(`${URL}/bookmark/${id}`, {
-                method: 'POST',
+                method: 'DELETE',
             });
     
             // Update the state with the deleted bookmark removed
