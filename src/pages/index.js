@@ -15,7 +15,7 @@ const Landing = () => {
     const handleUpdate = async (id) => {
         try {
             // Update the bookmark with the new title and URL
-            await fetch(`/update/${id}`, {
+            await fetch(`/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ const Landing = () => {
     
     const handleDelete = async (id) => {
         try {
-            await fetch(`/delete/${id}`, {
+            await fetch(`/${id}`, {
                 method: 'DELETE', // Use DELETE method
             });
     
