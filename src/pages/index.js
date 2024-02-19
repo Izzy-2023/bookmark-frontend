@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 import { Link, useLoaderData, Form } from "react-router-dom";
 
-
+const URL = process.env.REACT_APP_URL;
 
 const Landing = () => {
     const [bookmarks, setBookmarks] = useState(useLoaderData());
@@ -14,7 +14,7 @@ const Landing = () => {
 
     const handleUpdate = async (id) => {
         // Update the bookmark with the new title and URL
-        await fetch(`/bookmark/${id}`, {
+        await fetch(`${URL}/bookmark/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ const Landing = () => {
 
     const handleDelete = async (id) => {
         try {
-            await fetch(`/bookmark/${id}`, {
+            await fetch(`${URL}/bookmark/${id}`, {
                 method: 'POST',
             });
     
