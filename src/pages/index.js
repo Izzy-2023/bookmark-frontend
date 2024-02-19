@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 
 import { Link, useLoaderData, Form } from "react-router-dom";
 
+
+
 const Landing = () => {
     const [bookmarks, setBookmarks] = useState(useLoaderData());
     const [editingBookmarkId, setEditingBookmarkId] = useState(null);
@@ -11,41 +13,53 @@ const Landing = () => {
     const [updatedBookmarkUrl, setUpdatedBookmarkUrl] = useState('');
 
     const handleUpdate = async (id) => {
-        // Update the bookmark with the new title and URL
-        await fetch(`/update/${id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                title: updatedBookmarkTitle,
-                url: updatedBookmarkUrl,
-            }),
-        });
-        // Update the state with the updated bookmark
-        setBookmarks(bookmarks.map(bookmark => {
-            if (bookmark._id === id) {
-                return {
-                    ...bookmark,
+        try {
+            // Update the bookmark with the new title and URL
+            await fetch(`/update/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
                     title: updatedBookmarkTitle,
                     url: updatedBookmarkUrl,
-                };
-            }
-            return bookmark;
-        }));
-        // Clear the editing state
-        setEditingBookmarkId(null);
-        setUpdatedBookmarkTitle('');
-        setUpdatedBookmarkUrl('');
+                }),
+            });
+            // Update the state with the updated bookmark
+            setBookmarks(bookmarks.map(bookmark => {
+                if (bookmark._id === id) {
+                    return {
+                        ...bookmark,
+                        title: updatedBookmarkTitle,
+                        url: updatedBookmarkUrl,
+                    };
+                }
+                return bookmark;
+            }));
+            // Clear the editing state
+            setEditingBookmarkId(null);
+            setUpdatedBookmarkTitle('');
+            setUpdatedBookmarkUrl('');
+        } catch (error) {
+            console.error('Error updating bookmark:', error);
+        }
     };
-
+    
     const handleDelete = async (id) => {
-        await fetch(`/delete/${id}`, {
-            method: 'POST',
-        });
-        // Remove the deleted bookmark from the state
-        setBookmarks(bookmarks.filter(bookmark => bookmark._id !== id));
+        try {
+            await fetch(`/delete/${id}`, {
+                method: 'DELETE', // Use DELETE method
+            });
+    
+            // Update the state with the deleted bookmark removed
+            setBookmarks(bookmarks.filter(bookmark => bookmark._id !== id));
+        } catch (error) {
+            console.error('Error deleting bookmark:', error);
+        }
     };
+    
+    
+    
 
     return (
         <div>

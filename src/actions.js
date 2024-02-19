@@ -11,8 +11,9 @@ export const updateAction = async ({ request, params }) => {
         url: formData.get('url'),
     };
 
-    await fetch(`${URL}/bookmark/${params.id}`, {
-        method: 'put',
+    const url = new URL(`${URL}/bookmark/${params.id}`);
+    await fetch(url, {
+        method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
@@ -21,6 +22,7 @@ export const updateAction = async ({ request, params }) => {
 
     return redirect('/');
 };
+
 
 export const createAction = async ({ request }) => {
     const formData = await request.formData();
@@ -47,3 +49,4 @@ export const deleteAction = async ({ params }) => {
 
     return redirect('/');
 };
+
