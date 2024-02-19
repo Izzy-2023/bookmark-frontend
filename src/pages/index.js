@@ -58,7 +58,8 @@ const Landing = () => {
 
     return (
         <div className="form-container">
-            <h1>Bookmark App</h1>
+        <h1 style={{ fontFamily: 'Arial', fontSize: '2rem', fontWeight: 'bold', color: '#333', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)' }}>Bookmark App</h1>
+
             <Form action='/create' method='post'>
                 <input type='input' name='title' placeholder="Bookmark title"/>
                 <input type='input' name='url' placeholder="Bookmark URL" />

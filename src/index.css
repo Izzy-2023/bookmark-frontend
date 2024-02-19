@@ -75,7 +75,7 @@ body {
 }
 
 .form-container input[type="submit"] {
-  background-color: #007bff;
+  background-color: rgb(70, 176, 242);
   color: black;
   cursor: pointer;
   width: 150px;
