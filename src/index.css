@@ -114,11 +114,11 @@ body {
   color: black;
   cursor: pointer;
   width: 150px;
-  height: 22px;
+  height: 25px;
 }
 
 .form-container input[type="input"] {
   width: 150px;
-  height: 25px;
+  height: 30px;
 }
 
